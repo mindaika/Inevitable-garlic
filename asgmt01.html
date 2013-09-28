@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <!-- InstanceBegin template="/Templates/java assignment.dwt" codeOutsideHTMLIsLocked="false" -->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <!-- template parameters -->
+    <!-- InstanceParam name="asgmtVersion" type="text" value="1" -->
+    <title>CS261 Assignment 1</title>
+    <style type="text/css">
+      <!--
+        .code {
+        	font-family: Consolas, "Courier New", Courier, monospace;
+        	font-size: 14px;
+        }
+        .header {
+        	font-family: Cambria, Georgia, "Times New Roman", Times, serif;
+        	font-size: 20px;
+        	font-weight: normal;
+        	text-decoration: underline;
+        }
+        .text {
+        	font-family: Cambria, Georgia, "Times New Roman", Times, serif;
+        	font-size: medium;
+        	font-style: normal;
+        }
+        .title {
+        	font-size: 24px;
+        	font-weight: bold;
+        	text-decoration: underline;
+        	font-family: Cambria, Georgia, "Times New Roman", Times, serif;
+        }
+        .tableCellBg {
+        	background-color: #FDE7D9;
+        }
+        -->
+    </style>
+  </head>
+  <body class="text">
+    <p class="title">CS261 Assignment 1 Instructions</p>
+    <p class="header">Code To Start With</p>
+    <p>This assignment provides a you with a .zip file containing the code you should start with. The .zip file will expand into a folder that is set up to be both a BlueJ project and an Eclipse project.</p>
+    <p><span class="header">JAR Files</span> </p>
+    <p>Java executables are packaged as JAR (<strong>J</strong>ava <strong>AR</strong>chive) files. A JAR file is actually a Zip file. You can open a JAR file with any Zip utility (e.g. <a href="http://7-zip.org/" target="_blank">7-Zip</a>). Once you&rsquo;re ready to submit your work, you will need to create a JAR file containing your code. Both BlueJ and Eclipse have the ability to do this (see the <strong>How To Create a JAR File...</strong> sections below). In order for your work to be graded, your JAR file must be executable from the command line.</p>
+    <p>Each JAR file contains a folder named <strong>META-INF</strong>. This folder contains a file named <strong>MANIFEST.MF</strong>, which is the JAR file&rsquo;s &ldquo;manifest file.&rdquo; The manifest file is a text file that specifies which Java class in the JAR file contains the<span class="code"> main()</span> method. The Java Virtual Machine needs this information in order to be able to run your code from the command line.</p>
+    <p> You should not change the structure of your project folder <em>in any way</em>. Do not rename files, do not move files to a different folder, do not create new folders or files, etc.</p>
+    <!-- InstanceBeginEditable name="description" -->
+    <p class="header">Collections Framework</p>
+    <p>
+      <i>
+        If you do this assignment correctly, you will not have to
+        write a lot of code.  You will just have to use
+        the <!-- #BeginLibraryItem "/Library/Collections
+        Framework.lbi" -->Collections Framework<!-- #EndLibraryItem
+        --> intelligently. &ldquo;Intelligently&rdquo; also means that
+        you should pay attention to the storage and time efficiency of
+        your code and use the <!-- #BeginLibraryItem
+        "/Library/Collections Framework.lbi" -->Collections
+        Framework<!-- #EndLibraryItem -->
+      </i>
+      <span style="font-style: italic">components that are most appropriate to the task your code will be performing. </span>
+    </p>
+    <p>You are required to use the &ldquo;generics&rdquo; syntax in your code. This means that if you&rsquo;re using (for example) an ArrayList, you should code it like this:</p>
+    <blockquote>
+      <p class="code">List&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;(); </p>
+    </blockquote>
+    <p style="font-style: italic">In other words, the data types of the items in your Collections must <u>always</u> be specified between the angle brackets.</p>
+    <p style="font-style: italic">This requirement is true of all other Java assignments for this course. Anytime it&rsquo;s <u>possible</u> to use the generics syntax, it&rsquo;s <u>required</u>. </p>
+    <p><em>Starting with the BlueJ/Eclipse project in asgmt01.zip:</em></p>
+    <p>
+      Use the <!-- #BeginLibraryItem "/Library/Collections Framework.lbi" -->Collections Framework<!-- #EndLibraryItem --> to write a program that counts how many
+      times each <span style="font-style: italic">word pair</span> appears in a text file. A word pair consists of two consecutive words (i.e. a word and the word that directly follows it). In the first sentence of this paragraph, the words &ldquo;counts&rdquo; and &ldquo;how&rdquo; are a word pair with a <span style="font-style: italic">first word</span> of &ldquo;counts&rdquo; and a <span style="font-style: italic">second word</span> of &ldquo;how.&rdquo; 
+    </p>
+    <p>For instance, this input to the program: </p>
+    <blockquote>
+      <p class="code">abc def abc ghi abc def ghi jkl abc xyz abc abc abc --- </p>
+    </blockquote>
+    <p>Should produce this output:</p>
+    <blockquote>
+      <pre class="code">abc:
+   abc, 2
+   def, 2
+   ghi, 1
+   xyz, 1
+def:
+   abc, 1
+   ghi, 1
+ghi:
+   abc, 1
+   jkl, 1
+jkl:
+   abc, 1
+xyz:
+   abc, 1</pre>
+    </blockquote>
+    <p><span style="font-style: italic">Note that the word </span>&ldquo;---&rdquo;<span style="font-style: italic"> is used as an end-of-input marker, and is not counted as a word. </span></p>
+    <p>
+      Note that the list of words and each sublist of second words is in alphabetical order. Putting things in alphabetical order is a requirement of the assignment. Do not write your own code for putting
+      the output into alphabetical order.  Use the facilities provided in the <!-- #BeginLibraryItem "/Library/Collections Framework.lbi" -->Collections Framework<!-- #EndLibraryItem --> for that.
+    </p>
+    <p>The output indicates that the word &ldquo;abc&rdquo; was followed twice by &ldquo;abc,&rdquo; twice by  &ldquo;def,&rdquo; once by  &ldquo;ghi,&rdquo; and once by  &ldquo;xyz.&rdquo; The word &ldquo;ghi&rdquo; was followed once by &ldquo;abc&rdquo; and once by  &ldquo;jkl.&rdquo; Note that the output should be sorted by <span style="font-style: italic">first word</span>, and for each <span style="font-style: italic">first word</span> the output should be sorted by <span style="font-style: italic">second word</span>. </p>
+    <p>To get full credit for this assignment, you should process the words in <span style="font-style: italic">one pass</span> (i.e. just go through the words <span style="font-style: italic">one time</span>). What you do to produce the printed output does not count as a &ldquo;pass.&rdquo;</p>
+    <p><i>Do not</i> bother with punctuation.  Count words like &ldquo;this.&rdquo; and &ldquo;this&rdquo; as separate
+      words.  Do the same with capital and small letters (i.e. &ldquo;this&rdquo; and  &ldquo;This&rdquo; are separate words). For the purposes of this assignment, any sequence of non-whitespace characters is considered to be a word.
+    </p>
+    <p>Submit your work as <strong>asgmt01.jar</strong>.</p>
+    <p>Using amazon.txt as its input, your progam should produce output identical to the contents of <span style="font-weight: bold">asgmt01.output.txt</span>, which is provided with this assignment. </p>
+    <span class="header">Testing Your Code</span>
+    <p>I will be using the file <strong>amazon.txt</strong> to test your code.  The amazon.txt file is included in <strong>asgmt01.zip</strong>.</p>
+    <p>In order to use amazon.txt as the input to your program, type the
+      following at the MS-DOS command line:
+    </p>
+    <blockquote>
+      <p class="code">java -jar asgmt01.jar &lt; amazon.txt</p>
+    </blockquote>
+    <p>By doing this, you will be &ldquo;redirecting&rdquo; the &ldquo;standard input&rdquo; of your program to be amazon.txt,  and 
+      the input will come from amazon.txt instead of user type-in.
+    </p>
+    <p><i>You <b>do not</b> need to write code for opening and reading the
+      amazon.txt file.  Either do the &ldquo;redirecting&rdquo; as described above or specify the file name as a command line argument to </i><span class="code">main()</span><i>.</i>
+    </p>
+    <p class="header">Required JAR File Structure</p>
+    <p>Here is the required structure for the .jar file that you will submit for this assignment:</p>
+    <table width="90%">
+      <tr>
+        <td align="left" valign="top">
+          <ul>
+            <li>
+              <em>.jar file</em>
+              <ul>
+                <li>Assignment1.java</li>
+                <li>Assignment1.class</li>
+                <li>
+                  META-INF
+                  <ul>
+                    <li>MANIFEST.MF</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </td>
+        <td align="left" valign="top" width="20">&nbsp;</td>
+        <td align="left" valign="top">
+          <p><br />
+            <em>your source file</em><br />
+            <em>your compiled code<br />
+            (folder)<br />
+            manifest file created by your IDE &#8211; specifies the class containing the</em><span class="code"> main()</span><em> method</em>
+          </p>
+        </td>
+      </tr>
+    </table>
+    <p>You can use any Zip utility (e.g. <a href="http://7-zip.org/" target="_blank">7-Zip</a>) to check the structure of your .jar file.</p>
+    <!-- InstanceEndEditable --><span class="header">How To Create a JAR File in BlueJ </span>
+    <p>To create a <span class="style1">.jar </span>file from a BlueJ project, do the following:</p>
+    <ol>
+      <li>&ldquo;Project&rdquo; menu, &ldquo;Create Jar File &rdquo; command (was &ldquo;Export...&rdquo; in older versions of BlueJ) </li>
+      <li>choose &ldquo;Store as jar file&rdquo;</li>
+      <li>main class: choose the class that defines the <strong>main</strong> method</li>
+      <li>check &ldquo;include source&rdquo; (if you don&rsquo;t do this, your .java files will not be included and your work will not be graded) </li>
+      <li>click &ldquo;Continue&rdquo;</li>
+      <li>choose a name and a place for the JAR file</li>
+    </ol>
+    <span class="header">How To Create a JAR File in Eclipse </span>
+    <p>To create a <span class="style1">.jar </span>file from an  Eclipse project, do the following:</p>
+    <ol>
+      <li>in the Project Explorer view, click the small triangle to the left of your project, which will open an outline view</li>
+      <li>right click on the .jardesc (JAR DESCription) file</li>
+      <li>click on &ldquo;Create JAR&rdquo;</li>
+    </ol>
+    <p>The .jar file will be created in your project folder. Each assignment project for this course will include a .jardesc file.</p>
+    <span class="header"></span><!-- #BeginLibraryItem "/Library/submit asgmt to D2L.lbi" -->
+    <!-- This library item is designed for use with either "java assignment.dwt" or "cpp assignment.dwt".
+      It requires that .header be defined in the CSS of the .dwt file -->
+    <!-- uses .header from the .dwt file's CSS -->
+    <span class="header">To Submit This Assignment</span>
+    <p>Submit the requested file to Desire2Learn. &nbsp; Make sure that your code prints your name, assignment description, and number, as requested. </p>
+    <ul>
+      <li>Be  certain to check that you completed the upload successfully. After you click  the Upload File button, you must also click the <strong>SUBMIT ASSIGNMENT </strong>button. This  is very easy to forget. If you do not do this, I will not see your work and you will get a grade of zero for the assignment. I would recommend entering an  email address so you can be notified that the upload was completed  successfully.</li>
+      <li>You  may upload as many versions as you wish prior to the due date. I will only see  and grade the final one. You will not be able to upload assignments after due date.</li>
+      <li>Points will be deducted for uploading a file with a name that is not as specified. Every term I get a few students whose approach to following directions is, shall we say, &ldquo;creative.&rdquo; I encourage creativity in general, but there are places where it is <u>not appropriate</u>.</li>
+    </ul>
+    <!-- #EndLibraryItem -->
+    <p>&nbsp;</p>
+  </body>
+  <!-- InstanceEnd -->
+</html>
