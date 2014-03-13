@@ -50,6 +50,7 @@ public class Assignment1 {
         // Notice that getFileInputStream could have generated an error and left "in"
         // as null.  We should check that here and avoid trying to process the stream
         // data if there was an error.
+
         if (in != null) {
             // Using a Scanner object to read one word at a time from the input stream.
             Scanner sc = new Scanner(in);
